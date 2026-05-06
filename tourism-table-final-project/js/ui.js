@@ -194,7 +194,7 @@ export function createUI(eventBus, dataService, rootEl) {
       header.classList.remove("is-sort-asc", "is-sort-desc");
     });
 
-    if (!sortColumn === null) {
+    if (sortColumn === null) {
       return;
     }
 
@@ -317,7 +317,7 @@ export function createUI(eventBus, dataService, rootEl) {
 
     const selectedRow = els.tbody.querySelector("tr.is-selected");
     if (selectedRow) {
-      selectedRow.classList.removew("is-selected");
+      selectedRow.classList.remove("is-selected");
     }
   }
 
@@ -354,7 +354,7 @@ export function createUI(eventBus, dataService, rootEl) {
     //   - Call dataService.setSort(column).
     const closestTH = domEvent.target.closest("[data-sort-column]");
 
-    if (!closesTH) {
+    if (!closestTH) {
       return;
     }
 
@@ -413,7 +413,7 @@ export function createUI(eventBus, dataService, rootEl) {
     //   - Call dataService.selectRow(id).
     const closestTR = domEvent.target.closest("tr");
 
-    if (!closestTR || closestTR.classlist.contains("empty-row")) {
+    if (!closestTR || closestTR.classList.contains("empty-row")) {
       return;
     }
 
